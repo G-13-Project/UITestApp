@@ -1,6 +1,8 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, ImageBackground, SafeAreaView, Platform, Image, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Pressable, 
+    ImageBackground, SafeAreaView, Platform, Image,
+     Alert, TouchableOpacity, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 function Login() {
@@ -13,9 +15,19 @@ function Login() {
         <Image source={ require('../assets/Menu.png')} style={styles.menu}/>
         <Image source={ require('../assets/projectlogomini.png')} style={styles.logomini}/> 
         <Text style={styles.head} >Ayurveda Medi App </Text>
-        <Text style={{fontSize:20, textAlign:'center',marginTop:20, }}>This is camera page</Text>
+        <Text style={{fontSize:20, textAlign:'center',marginTop:'7%', }}>Log In</Text>
+
         <StatusBar style="auto" />
-        
+        <View style={styles.textInput}>
+            <TextInput placeholder='Email' style={styles.TypeingText}></TextInput>
+        </View>
+        <View style={styles.textInput}>
+            <TextInput placeholder='Passward' style={styles.TypeingText}></TextInput>
+        </View>
+
+        <Pressable style={styles.Press} onPress={() => navigation.navigate('Home')}>
+            <Text style={styles.ButtonText}>Login</Text>
+        </Pressable>
         
       </ImageBackground>
       </SafeAreaView>
@@ -43,7 +55,7 @@ const styles = StyleSheet.create({
       marginTop:55, 
       position: 'absolute',
       },
-      logomini:{
+    logomini:{
         alignSelf:'flex-end', 
         height:50, 
         width:50, 
@@ -51,20 +63,49 @@ const styles = StyleSheet.create({
         marginTop:35, 
         position: 'absolute', 
         marginRight:'5%',
-        },
-        head:{
-          textAlign:'center',
-          fontSize:20,
-          marginTop:-40,
-          // fontFamily:'Arial',
-        },
-        fotter:{
-            flex : 1,
-            justifyContent: 'space-evenly',
-            flexDirection:'row', 
-            alignItems:'flex-end', 
-            marginBottom: '3%' 
-          }
+    },
+    head:{
+        textAlign:'center',
+        fontSize:20,
+        marginTop:-40,
+        // fontFamily:'Arial',
+    },
+
+    textInput:{
+        backgroundColor:'#ffffff',
+        marginLeft: '15%',
+        marginRight: '15%',
+        marginTop:'10%',
+        height:45,
+        borderRadius:25,
+        justifyContent :'center',
+        borderWidth:2,
+        borderColor: '#1CAB4C',
+    },
+
+    TypeingText:{
+        marginLeft: 15,
+        fontSize:16,
+        color:'#1CAB4C',
+
+     },
+
+     Press:{
+        backgroundColor:'#1CAB4C',
+        marginTop:'15%',
+        height:45,
+        marginLeft: '30%',
+        marginRight:'30%',
+        borderRadius:25,
+        justifyContent :'center',
+     },
+
+     ButtonText:{
+        textAlign:'center',
+        fontSize:20,
+        color:'#ffffff'
+     },
+    
         
 })
 
