@@ -15,7 +15,7 @@ function Login() {
         <Image source={ require('../assets/Menu.png')} style={styles.menu}/>
         <Image source={ require('../assets/projectlogomini.png')} style={styles.logomini}/> 
         <Text style={styles.head} >Ayurveda Medi App </Text>
-        <Text style={{fontSize:20, textAlign:'center',marginTop:'7%', }}>Log In</Text>
+        <Text style={{fontSize:20, textAlign:'center',marginTop:'7%', marginBottom:'15%' }}>Log In</Text>
 
         <StatusBar style="auto" />
         <View style={styles.textInput}>
@@ -28,7 +28,11 @@ function Login() {
         <Pressable style={styles.Press} onPress={() => navigation.navigate('Home')}>
             <Text style={styles.ButtonText}>Login</Text>
         </Pressable>
-        
+        <View style={{backgroundColor: '#000000', height: 3, width:'90%', marginLeft:'5%'}}></View>
+        <View style={{flexDirection:'row', justifyContent:'center', marginTop:'2%'}}>
+            <Text>Don't have an account?</Text>
+            <Text style={{marginLeft:"5%",}} onPress={() => navigation.navigate('Register')}>Register</Text>
+        </View>
       </ImageBackground>
       </SafeAreaView>
     );
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#ffffff',
         marginLeft: '15%',
         marginRight: '15%',
-        marginTop:'10%',
+        marginBottom:'5%',
         height:45,
         borderRadius:25,
         justifyContent :'center',
@@ -92,7 +96,8 @@ const styles = StyleSheet.create({
 
      Press:{
         backgroundColor:'#1CAB4C',
-        marginTop:'15%',
+        marginTop:'10%',
+        marginBottom:'5%',
         height:45,
         marginLeft: '30%',
         marginRight:'30%',
@@ -102,7 +107,7 @@ const styles = StyleSheet.create({
 
      ButtonText:{
         textAlign:'center',
-        fontSize:20,
+        fontSize:18,
         color:'#ffffff'
      },
     
