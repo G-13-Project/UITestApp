@@ -4,9 +4,17 @@ import { StyleSheet, Text, View, Pressable,
     ImageBackground, SafeAreaView, Platform, Image,
      Alert, TouchableOpacity, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import SelectList from 'react-native-dropdown-select-list';
 
 function Register() {
     const navigation = useNavigation();
+    
+    const [Selected , setSelected] = React.useState("");
+    const data = [
+        {key:'1' , value : 'Doctor' },
+        {key:'2' , value : 'Seller' },
+        {key:'3' , value : 'Researcher' },
+    ];
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -19,8 +27,14 @@ function Register() {
 
         <StatusBar style="auto" />
         <View style={styles.textInput}>
-            <TextInput placeholder='Register As' style={styles.TypeingText}></TextInput>
+        <SelectList data={data} setSelected={setSelected} placeholder='Register As'
+        boxStyles={{ backgroundColor:'#ffffff', borderColor:'#1CAB4C', borderWidth:2, borderRadius:25, height:50,}}
+        inputStyles ={{ fontSize:16, color:"#47D50D" }}
+        dropdownTextStyles={{fontSize:16, color:"#47D50D" }}
+        dropdownStyles={{backgroundColor:'#ffffff',borderWidth:0, borderRadius:0,}}
+        />
         </View>
+     
        
         <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',}}>
             <Text style={{flex:1, fontSize:16}} >Name</Text>
@@ -112,16 +126,9 @@ const styles = StyleSheet.create({
     },
 
     textInput:{
-        backgroundColor:'#ffffff',
         marginLeft: '15%',
         marginRight: '15%',
-        marginBottom:'5%',
-        height:45,
-        borderRadius:25,
-        justifyContent :'center',
-        borderWidth:2,
-        borderColor: '#1CAB4C',
-    },
+        },
 
     TypeingText:{
         marginLeft: 15,
