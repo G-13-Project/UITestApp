@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable, 
     ImageBackground, SafeAreaView, Platform, Image,
-     Alert, TouchableOpacity, TextInput } from 'react-native';
+     Alert, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import SelectList from 'react-native-dropdown-select-list';
 
@@ -26,6 +26,8 @@ function Register() {
         <Text style={{fontSize:20, textAlign:'center',marginTop:'7%', marginBottom:'10%' }}>Register</Text>
 
         <StatusBar style="auto" />
+
+        
         <View style={styles.textInput}>
         <SelectList data={data} setSelected={setSelected} placeholder='Register As'
         boxStyles={{ backgroundColor:'#ffffff', borderColor:'#1CAB4C', borderWidth:2, borderRadius:25, height:50,}}
@@ -35,49 +37,49 @@ function Register() {
         />
         </View>
      
-       
-        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',}}>
+        <ScrollView>
+        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%', height:50,}}>
             <Text style={{flex:1, fontSize:16}} >Name</Text>
             <TextInput placeholder='Moda Pawi' style={{ flex:2, fontSize:16}}></TextInput>
         </View>
         <View style={{backgroundColor: '#000000', height: 2, width:'80%', marginLeft:'10%'}}></View>
         
-        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',}}>
+        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',height:50,}}>
             <Text style={{flex:1, fontSize:16}} >NIC</Text>
             <TextInput placeholder='981234567V' style={{ flex:2, fontSize:16}}></TextInput>
         </View>
         <View style={{backgroundColor: '#000000', height: 2, width:'80%', marginLeft:'10%'}}></View>
         
-        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',}}>
+        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',height:50,}}>
             <Text style={{flex:1, fontSize:16}} >District</Text>
             <TextInput placeholder='Allapurate' style={{ flex:2, fontSize:16}}></TextInput>
         </View>
         <View style={{backgroundColor: '#000000', height: 2, width:'80%', marginLeft:'10%'}}></View>
         
-        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',}}>
+        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',height:50,}}>
             <Text style={{flex:1, fontSize:16}} >Contact No</Text>
             <TextInput placeholder='0760806879' style={{ flex:2, fontSize:16}}></TextInput>
         </View>
         <View style={{backgroundColor: '#000000', height: 2, width:'80%', marginLeft:'10%'}}></View>
         
-        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',}}>
+        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',height:50,}}>
             <Text style={{flex:1, fontSize:16}} >Email</Text>
             <TextInput placeholder='modapawi98@gmail.com' style={{ flex:2, fontSize:16}}></TextInput>
         </View>
         <View style={{backgroundColor: '#000000', height: 2, width:'80%', marginLeft:'10%'}}></View>
         
-        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',}}>
+        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',height:50,}}>
             <Text style={{flex:1, fontSize:16}} >Passward</Text>
             <TextInput placeholder='********' style={{ flex:2, fontSize:16}}></TextInput>
         </View>
         <View style={{backgroundColor: '#000000', height: 2, width:'80%', marginLeft:'10%'}}></View>
           
-        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',}}>
+        <View style={{flex:3, flexDirection:'row', alignItems:'center', marginLeft:"10%", marginTop:'2%',height:50,}}>
             <Text style={{flex:1, fontSize:16}} >Re-Enter Passward</Text>
             <TextInput placeholder='********' style={{ flex:2, fontSize:16}}></TextInput>
         </View>
         <View style={{backgroundColor: '#000000', height: 2, width:'80%', marginLeft:'10%'}}></View>
-        
+        </ScrollView>
 
         <Pressable style={styles.Press} onPress={() => navigation.navigate('Home')}>
             <Text style={styles.ButtonText}>Register</Text>
