@@ -8,11 +8,14 @@ function Search() {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-      <ImageBackground source={ require('../assets/Group17.png')} resizeMode='stretch' style={{flex:1,}}>
-        <View style={styles.heder}/>
-        <Image source={ require('../assets/Menu.png')} style={styles.menu}/>
-        <Image source={ require('../assets/projectlogomini.png')} style={styles.logomini}/> 
-        <Text style={styles.head} >Ayurveda Medi App </Text>
+        <ImageBackground source={ require('../assets/Group17.png')} resizeMode='stretch' style={{flex:1,}}>
+        <View style={styles.heder}>
+          <TouchableOpacity>
+            <Image source={ require('../assets/Menu.png')} style={styles.menu}/>
+          </TouchableOpacity>
+          <Text style={styles.head} >Ayurveda Medi App </Text>
+          <Image source={ require('../assets/projectlogomini.png')} style={styles.logomini}/>
+        </View>
         <Text style={{fontSize:40, textAlign:'center',marginTop:20, color:"#47D50D"}}>Doctors</Text>
         <StatusBar style="auto" />
         <View style={styles.fotter}>
@@ -26,8 +29,8 @@ function Search() {
         <Image source={require('../assets/search.png')}/>
         </TouchableOpacity>
         </View>
-      </ImageBackground>
-      </SafeAreaView>
+        </ImageBackground>
+        </SafeAreaView>
     );
 }
 const styles = StyleSheet.create({
@@ -37,44 +40,40 @@ const styles = StyleSheet.create({
     },
   
     heder: {
-    paddingTop: Platform.OS === 'android' ? StatusBar.height : 0,
-    marginTop: 30,
-    height: 60,
-    width: '100%',
-    backgroundColor: '#fff',
-    },
-
-    menu: {
+      paddingTop: Platform.OS === 'android' ? StatusBar.height : 0,
+      flexDirection:'row',
+      marginTop: 30,
+      height: 60,
+      width: '100%',
+      backgroundColor: '#fff',
+      alignItems:'center',
+      justifyContent:'space-between',
+      },
+      menu: {
       height:20, 
       width:20, 
       resizeMode:'contain',
-      marginLeft:'2%', 
-      marginTop:55, 
-      position: 'absolute',
+      marginLeft:10,
       },
-      logomini:{
-        alignSelf:'flex-end', 
-        height:50, 
-        width:50, 
-        resizeMode:'contain', 
-        marginTop:35, 
-        position: 'absolute', 
-        marginRight:'5%',
-        },
-        head:{
-          textAlign:'center',
-          fontSize:20,
-          marginTop:-40,
-          // fontFamily:'Arial',
-        },
-        fotter:{
-          flex : 1,
-          justifyContent: 'space-evenly',
-          flexDirection:'row', 
-          alignItems:'flex-end', 
-          marginBottom: '3%' 
-        }
-        
+      head:{
+        textAlign:'center',
+        fontSize:20,
+        // fontFamily:'Arial',
+      },
+      logomini:{  
+      height:50, 
+      width:50, 
+      resizeMode:'contain',
+      marginRight:10,
+      },
+      fotter:{
+        flex : 1,
+        justifyContent: 'space-evenly',
+        flexDirection:'row', 
+        alignItems:'flex-end', 
+        marginBottom: '3%' 
+      }
+      
 })
 
 export default Search;
