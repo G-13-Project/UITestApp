@@ -10,7 +10,7 @@ function Search() {
         <SafeAreaView style={{ flex: 1 }}>
         <ImageBackground source={ require('../assets/Group17.png')} resizeMode='stretch' style={{flex:1,}}>
         <View style={styles.heder}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=> Alert.alert('Navigation Page will pop-up.')}>
             <Image source={ require('../assets/Menu.png')} style={styles.menu}/>
           </TouchableOpacity>
           <Text style={styles.head} >Ayurveda Medi App </Text>

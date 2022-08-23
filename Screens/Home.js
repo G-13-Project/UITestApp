@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, ImageBackground, SafeAreaView, Platform, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, ImageBackground, SafeAreaView, Platform, Image, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
         <SafeAreaView style={{ flex: 1 }}>
         <ImageBackground source={ require('../assets/Group17.png')} resizeMode='stretch' style={{flex:1,}}>
           <View style={styles.heder}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=> Alert.alert('Navigation Page will pop-up.')}>
             <Image source={ require('../assets/Menu.png')} style={styles.menu}/>
           </TouchableOpacity>
           <Text style={styles.head} >Ayurveda Medi App </Text>
