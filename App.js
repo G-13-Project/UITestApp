@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './Screens/Home';
 import Search from './Screens/Search';
-import Camera from './Screens/Camera';
+import CameraApp from './Screens/Camera';
 import Login from './Screens/Login.js';
 import Register from './Screens/Register';
 
@@ -16,7 +16,7 @@ export default function App() {
       <stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
         <stack.Screen name='Home' component={Home}/>
         <stack.Screen name='Search' component={Search}/>
-        <stack.Screen name='Camera' component={Camera}/>
+        <stack.Screen name='Camera' component={CameraApp}/>
         <stack.Screen name='Login' component={Login}/>
         <stack.Screen name='Register' component={Register}/>
       </stack.Navigator>

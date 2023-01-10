@@ -2,12 +2,26 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {StyleSheet, Text, View, Button, ImageBackground, SafeAreaView, Platform, Image, Alert, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import {Camera} from "expo-camera";
 
-function Camera() {
+
+function CameraApp() {
     const navigation = useNavigation();
+    const [startCamera,setStartCamera] = React.useState(false)
+    
+
+        const __startCamera = async () => {
+            const {status} = await Camera.requestCameraPermissionsAsync()
+        if(status === 'granted'){
+          setStartCamera(true)
+        
+        }else{
+          Alert.alert("Access denied")
+        }
+      }
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1,}}>
         <ImageBackground source={ require('../assets/Group17.png')} resizeMode='stretch' style={{flex:1,}}>
         <View style={styles.heder}>
           <TouchableOpacity onPress={()=> Alert.alert('Navigation Page will pop-up.')}>
@@ -19,6 +33,50 @@ function Camera() {
         <Text style={{fontSize:20, textAlign:'center',marginTop:20, }}>This is camera page</Text>
         <StatusBar style="auto" />
         
+        {startCamera ? (
+          <Camera
+            style={{flex: 1,width:"90%", height:"50%",alignSelf:'center'}}
+            ref={(r) => {
+              camera = r
+            }}
+          ></Camera>
+        ) : (
+          <View
+            style={{
+              flex: 1,
+              backgroundColor: '#fff',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <TouchableOpacity
+              onPress={__startCamera}
+              style={{
+                width: 130,
+                borderRadius: 4,
+                backgroundColor: '#14274e',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: 40
+              }}
+            >
+              <Text
+                style={{
+                  color: '#fff',
+                  fontWeight: 'bold',
+                  textAlign: 'center'
+                }}
+              >
+                Take picture
+              </Text>
+            </TouchableOpacity>
+          </View>
+          
+        )}
+
+        
+      
         <View style={styles.fotter}>
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
         <Image source={require('../assets/home.png')} style={{alignContent:'flex-end'}}/>
@@ -30,6 +88,7 @@ function Camera() {
         <Image source={require('../assets/search.png')}/>
         </TouchableOpacity>
         </View>
+        
         
       </ImageBackground>
       </SafeAreaView>
@@ -78,4 +137,4 @@ const styles = StyleSheet.create({
         
 })
 
-export default Camera;
+export default CameraApp;
