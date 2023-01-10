@@ -10,15 +10,23 @@ function CameraApp() {
     const [startCamera,setStartCamera] = React.useState(false)
     
 
-        const __startCamera = async () => {
-            const {status} = await Camera.requestCameraPermissionsAsync()
-        if(status === 'granted'){
-          setStartCamera(true)
-        
-        }else{
-          Alert.alert("Access denied")
-        }
+    const __startCamera = async () => {
+      const {status} = await Camera.requestCameraPermissionsAsync()
+      if(status === 'granted'){
+        setStartCamera(true)
+      
+      }else{
+        Alert.alert("Access denied")
       }
+    }
+
+    const __takePicture = async () => {
+      if (!camera) return
+      const photo = await camera.takePictureAsync()
+      console.log(photo)
+      setPreviewVisible(true)
+      setCapturedImage(photo)
+    }
 
     return (
         <SafeAreaView style={{ flex: 1,}}>
@@ -74,6 +82,17 @@ function CameraApp() {
           </View>
           
         )}
+
+        <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+          <TouchableOpacity onPress={__takePicture}>
+          <Image source={require('../assets/camera.png')}/>
+          </TouchableOpacity>
+          </View>
 
         
       
