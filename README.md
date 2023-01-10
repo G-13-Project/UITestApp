@@ -13,3 +13,7 @@ drop down list
 Dependency : npm install react-native-dropdown-select-list
 
 more details : https://www.npmjs.com/package/react-native-dropdown-select-list
+
+Dependency : npm install expo-camera
+
+more details : https://www.freecodecamp.org/news/how-to-create-a-camera-app-with-expo-and-react-native/
