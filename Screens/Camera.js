@@ -7,7 +7,9 @@ import {Camera} from "expo-camera";
 
 function CameraApp() {
     const navigation = useNavigation();
-    const [startCamera,setStartCamera] = React.useState(false)
+    const [startCamera,setStartCamera] = React.useState(false);
+  //   const [previewVisible, setPreviewVisible] = useState(false);
+  // const [capturedImage, setCapturedImage] = useState<any>(null);
     
 
     const __startCamera = async () => {
@@ -38,12 +40,11 @@ function CameraApp() {
           <Text style={styles.head} >Ayurveda Medi App </Text>
           <Image source={ require('../assets/projectlogomini.png')} style={styles.logomini}/>
         </View>
-        <Text style={{fontSize:20, textAlign:'center',marginTop:20, }}>This is camera page</Text>
         <StatusBar style="auto" />
         
         {startCamera ? (
           <Camera
-            style={{flex: 1,width:"90%", height:"50%",alignSelf:'center'}}
+            style={{flex: 1,width:"90%", height:"50%",alignSelf:'center',marginBottom:"2%"}}
             ref={(r) => {
               camera = r
             }}
@@ -52,9 +53,13 @@ function CameraApp() {
           <View
             style={{
               flex: 1,
+              width:"90%",
+              height:"50%",
               backgroundColor: '#fff',
+              alignSelf:'center',
               justifyContent: 'center',
-              alignItems: 'center'
+              alignItems: 'center',
+              marginBottom:"2%"
             }}
           >
             <TouchableOpacity
@@ -82,6 +87,7 @@ function CameraApp() {
           </View>
           
         )}
+        
 
         <View
             style={{
